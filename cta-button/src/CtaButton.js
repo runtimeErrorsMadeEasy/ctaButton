@@ -16,6 +16,7 @@ export class CtaButton extends LitElement {
         border: 2px solid white;
         transition-duration: 0.5s;
         font-family: impact;
+        font-size: large;
       }
       .ctaButton:hover {
         border-radius: 24px;
@@ -28,18 +29,27 @@ export class CtaButton extends LitElement {
     `;
   }
 
+  constructor() {
+    super();
+  }
+  
+  _myLink() {
+    window.open('https://gopsusports.com/sports/mens-ice-hockey/schedule/2021-22');
+  }
+ 
+
+
+
   // static get properties() {
   // return {
   //  };
   // }
 
-  // constructor() {
-  //  super();
-  // }
+ 
 
   render() {
     return html`
-      <button class="ctaButton" id="testButton">Penn State Hockey</button>
+      <button class="ctaButton" id="testButton" @click="${this._myLink}">Penn State Hockey</button>
     `;
   }
 }
