@@ -13,25 +13,24 @@ export class CtaButton extends LitElement {
 
   static get properties() {
     return {
-      title: { type: String },
-      counter: { type: Number },
+      myBool: { type: Boolean },
     };
   }
 
   constructor() {
     super();
-    this.title = 'Hey there';
-    this.counter = 5;
+    this.myBool = false;
   }
 
-  __increment() {
-    this.counter += 1;
+  _disable() {
+    document.getElementById('testButton').onclick = this.myBool;
   }
 
   render() {
     return html`
-      <h2>${this.title} Nr. ${this.counter}!</h2>
-      <button @click=${this.__increment}>increment</button>
+      <button id="testButton" ?disabled="${this.myBool}">test</button>
     `;
   }
 }
+
+// ?disabled="${this._disable}
