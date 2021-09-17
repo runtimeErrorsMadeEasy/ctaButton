@@ -1,55 +1,65 @@
+/* eslint-disable */
 import { html, css, LitElement } from 'lit';
 
 export class CtaButton extends LitElement {
   static get styles() {
     return css`
-      .ctaButton {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
+      :host {
+        display: inline-block;
         border-radius: 24px;
         padding: 12px 50px;
-        color: white;
-        background-color: navy;
-        border: 2px solid white;
+        --psu-foreground-color: white;
+        --psu-background-color: #003087;
+      }
+      .ctaButton {
+        border-radius: 24px;
+        padding: 12px 50px;
+        color: var(--psu-foreground-color);
+        background-color: var(--psu-background-color);
+        border: 2px solid var(--psu-foreground-color);
         transition-duration: 0.5s;
         font-family: impact;
         font-size: large;
       }
       .ctaButton:hover {
         border-radius: 24px;
-        color: navy;
-        background-color: white;
-        border: 2px solid navy;
+        --psu-foreground-color: #003087;
+        --psu-background-color: white;
         box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
           0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      }
+      :host([invert]) .ctaButton:hover,
+      :host([invert]) .ctaButton:focus {
+        --psu-foreground-color: #003087;
+        --psu-background-color: white;
       }
     `;
   }
 
+  static get properties() {
+    return {
+      title: { type: String },
+      invert: { type: Boolean, reflect: true },
+    };
+  }
+
   constructor() {
     super();
+    this.title = 'Penn State Hockey';
+    this.invert = false;
   }
-  
+
   _myLink() {
-    window.open('https://gopsusports.com/sports/mens-ice-hockey/schedule/2021-22');
+    window.open(
+      'https://gopsusports.com/sports/mens-ice-hockey/schedule/2021-22'
+    );
   }
- 
-
-
-
-  // static get properties() {
-  // return {
-  //  };
-  // }
-
- 
 
   render() {
     return html`
-      <button class="ctaButton" id="testButton" @click="${this._myLink}">Penn State Hockey</button>
+      <button class="ctaButton" id="testButton" @click="${this._myLink}">
+        ${this.title}
+      </button>
     `;
   }
 }
