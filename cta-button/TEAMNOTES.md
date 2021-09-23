@@ -1,4 +1,4 @@
-__Team Notes__
+<center>Centered text</center>__Team Notes__
 
 
 _Thurs 23rd:_<br /> 
