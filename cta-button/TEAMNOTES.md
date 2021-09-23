@@ -2,7 +2,7 @@ __Team Notes__
 
 
 _Thurs 23rd:_<br /> 
-
+We learned how to add an icon to our buttons, we picked the dino icon to be the icon for our button but it was not working even though the other ones were, so we ended up going with the bookmark.
 
 _Tues 21st:_<br /> 
 Today we learned how to add the properties of the button as well as that using tags would be a huge benefit to us. Our next steps are going to be to communicate with each other to see where we are at and then where we plan to go from there. We also plan to fix the suggestions that were given by the professor, as well as continue to add the features that we still needed for our button like be able to disable the button as well as other states for the button
