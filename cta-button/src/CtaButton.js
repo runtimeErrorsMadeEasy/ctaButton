@@ -1,5 +1,7 @@
 /* eslint-disable */
 import { html, css, LitElement } from 'lit';
+import '@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js';
+import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 
 export class CtaButton extends LitElement {
   static get styles() {
@@ -10,6 +12,10 @@ export class CtaButton extends LitElement {
         padding: 12px 50px;
         --psu-foreground-color: white;
         --psu-background-color: #003087;
+      }
+      .ctaIcon {
+        color: var(--psu-foreground-color);
+        transition-duration: 0.5s;
       }
       .ctaButton {
         border-radius: 24px;
@@ -40,6 +46,7 @@ export class CtaButton extends LitElement {
     return {
       title: { type: String },
       invert: { type: Boolean, reflect: true },
+      icon: { type: String },
     };
   }
 
@@ -47,6 +54,9 @@ export class CtaButton extends LitElement {
     super();
     this.title = 'Penn State Hockey';
     this.invert = false;
+    this.link =
+      'https://gopsusports.com/sports/mens-ice-hockey/schedule/2021-22';
+    this.icon = 'save';
   }
 
   _myLink() {
@@ -57,9 +67,15 @@ export class CtaButton extends LitElement {
 
   render() {
     return html`
-      <button class="ctaButton" id="testButton" @click="${this._myLink}">
-        ${this.title}
-      </button>
+      <span href="${this.link}" tabIndex="-1">
+        <button class="ctaButton" id="testButton" @click="${this._myLink}">
+          <simple-icon-lite
+            class="ctaIcon"
+            icon=${this.icon}
+          ></simple-icon-lite>
+          ${this.title}
+        </button>
+      </span>
     `;
   }
 }

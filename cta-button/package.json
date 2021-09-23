@@ -17,6 +17,8 @@
     "storybook:build": "npm run analyze -- --exclude dist && build-storybook"
   },
   "dependencies": {
+    "@babel/eslint-plugin": "^7.14.5",
+    "@lrnwebcomponents/simple-icon": "^4.0.0",
     "lit": "^2.0.0-rc.4"
   },
   "devDependencies": {
