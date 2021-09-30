@@ -9,7 +9,6 @@ export class CtaButton extends LitElement {
       :host {
         display: inline-block;
         border-radius: 24px;
-        padding: 6px 0px;
         transition-duration: 0.5s;
         --psu-foreground-color: white;
         --psu-background-color: #003087;
