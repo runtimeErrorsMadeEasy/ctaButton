@@ -4,18 +4,19 @@
   <meta charset="utf-8">
   <style>
     body {
-      background: #fafafa;
+      background: grey;
     }
   </style>
 </head>
 <body>
-  <div id="demo"></div>
-  <cta-button icon="bookmark" title="Penn State Hockey" invert></cta-button>  
+  <div id="demo">
+    <cta-button icon="bookmark" link='https://static.gopsusports.com/custompages/pegula/pegula-ice-arena.html' title="Ice Arena" invert></cta-button>
+    <cta-button icon="save" title="Schedule" invert></cta-button>
+    <cta-button icon="bookmark" link="https://gopsusports.com/sports/mens-ice-hockey/roster" title="Roster" invert></cta-button>
+    <cta-button icon="bookmark" title="Michigan Hockey" disabled="true" michiganSucks="true" invert  ></cta-button> 
+  </div> 
   <script type="module">
-  
     import '../cta-button.js';
-
-
   </script>
 </body>
 </html>
