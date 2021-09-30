@@ -10,12 +10,11 @@ export class CtaButton extends LitElement {
         display: inline-block;
         border-radius: 24px;
         transition-duration: 0.5s;
+        padding: 1px 0px;
         --psu-foreground-color: white;
         --psu-background-color: #003087;
       }
-      .ctaIcon:hover,
-      .ctaIcon:focus,
-      .ctaIcon:active {
+      .ctaIcon:hover {
         color: var(--psu-foreground-color);
         transition-duration: 0.5s;
       }
@@ -29,7 +28,9 @@ export class CtaButton extends LitElement {
         font-family: impact;
         font-size: large;
       }
-      .ctaButton:hover {
+      .ctaButton:hover,
+      .ctaButton:focus,
+      .ctaButton:active {
         border-radius: 24px;
         --psu-foreground-color: #003087;
         --psu-background-color: white;
@@ -57,7 +58,7 @@ export class CtaButton extends LitElement {
         color: transparent;
       }
 
-      :host([michiganSucks]) .ctaButton {
+      :host([michigan-sucks]) .ctaButton {
         background-color: #00274c;
         color: #ffcb05;
         border: 2px solid #ffcb05;
@@ -72,7 +73,11 @@ export class CtaButton extends LitElement {
       link: { type: String },
       icon: { type: String },
       disabled: { type: Boolean, reflect: true },
-      michiganSucks: { type: Boolean, relfect: true },
+      michiganSucks: {
+        type: Boolean,
+        relfect: true,
+        attribute: 'michigan-sucks',
+      },
     };
   }
 
@@ -84,7 +89,7 @@ export class CtaButton extends LitElement {
       'https://gopsusports.com/sports/mens-ice-hockey/schedule/2021-22';
     this.icon = 'save';
     this.disabled = false;
-    this.michiganSucks = true;
+    this.michiganSucks;
   }
 
   _myLink() {
@@ -97,7 +102,6 @@ export class CtaButton extends LitElement {
         <span tabIndex="-1">
           <button
             class="ctaButton"
-            ?michiganSucks=${this.michiganSucks}
             link=${this.link}
             ?disabled=${this.disabled}
             @click="${this._myLink}"
@@ -113,6 +117,3 @@ export class CtaButton extends LitElement {
     `;
   }
 }
-
-// ?disabled="${this._disable}
-// onclick="this.disabled = true;"
