@@ -6,17 +6,69 @@ export default {
   component: 'cta-button',
   argTypes: {
     title: { control: 'text' },
-    counter: { control: 'number' },
     textColor: { control: 'color' },
+    invert: { control: 'boolean' },
+    link: { control: 'text' },
+    icon: { control: 'text' },
+    disabled: { control: 'boolean' },
+    michiganSucks: { control: 'boolean' },
   },
 };
 
-function Template({ title = 'Hello world', counter = 5, textColor, slot }) {
+function Template({
+  title = 'Ice Arena',
+  textColor,
+  slot,
+  invert = false,
+  link = 'https://static.gopsusports.com/custompages/pegula/pegula-ice-arena.html',
+  icon = 'communication:location-on',
+  disabled = false,
+  michiganSucks = false,
+}) {
   return html`
     <cta-button
-      style="--cta-button-text-color: ${textColor || 'black'}"
+      style="--cta-button-text-color: ${textColor || 'white'}"
       .title=${title}
-      .counter=${counter}
+      .invert=${invert}
+      .link=${link}
+      .icon=${icon}
+      .disabled=${disabled}
+      .michiganSucks=${michiganSucks}
+    >
+      ${slot}
+    </cta-button>
+
+    <cta-button
+      style="--cta-button-text-color: ${textColor || 'white'}"
+      .title=${title}
+      .invert=${invert}
+      .link=${link}
+      .icon=${icon}
+      .disabled=${disabled}
+      .michiganSucks=${michiganSucks}
+    >
+      ${slot}
+    </cta-button>
+
+    <cta-button
+      style="--cta-button-text-color: ${textColor || 'white'}"
+      .title=${title}
+      .invert=${invert}
+      .link=${link}
+      .icon=${icon}
+      .disabled=${disabled}
+      .michiganSucks=${michiganSucks}
+    >
+      ${slot}
+    </cta-button>
+
+    <cta-button
+      style="--cta-button-text-color: ${textColor || 'white'}"
+      .title=${title}
+      .invert=${invert}
+      .icon=${icon}
+      ?disabled="${disabled}"
+      .michiganSucks=${michiganSucks}
     >
       ${slot}
     </cta-button>
@@ -24,21 +76,3 @@ function Template({ title = 'Hello world', counter = 5, textColor, slot }) {
 }
 
 export const Regular = Template.bind({});
-
-export const CustomTitle = Template.bind({});
-CustomTitle.args = {
-  title: 'My title',
-};
-
-export const CustomCounter = Template.bind({});
-CustomCounter.args = {
-  counter: 123456,
-};
-
-export const SlottedContent = Template.bind({});
-SlottedContent.args = {
-  slot: html`<p>Slotted content</p>`,
-};
-SlottedContent.argTypes = {
-  slot: { table: { disable: true } },
-};
