@@ -11,19 +11,16 @@ export default {
     link: { control: 'text' },
     icon: { control: 'text' },
     disabled: { control: 'boolean' },
-    michiganSucks: { control: 'boolean' },
   },
 };
 
 function Template({
   title = 'Ice Arena',
   textColor,
-  slot,
   invert = false,
   link = 'https://static.gopsusports.com/custompages/pegula/pegula-ice-arena.html',
   icon = 'communication:location-on',
-  disabled = false,
-  michiganSucks = false,
+  disabled = true,
 }) {
   return html`
     <cta-button
@@ -32,45 +29,33 @@ function Template({
       .invert=${invert}
       .link=${link}
       .icon=${icon}
-      .disabled=${disabled}
-      .michiganSucks=${michiganSucks}
     >
-      ${slot}
     </cta-button>
 
     <cta-button
       style="--cta-button-text-color: ${textColor || 'white'}"
-      .title=${title}
+      title="Schedule"
       .invert=${invert}
-      .link=${link}
-      .icon=${icon}
-      .disabled=${disabled}
-      .michiganSucks=${michiganSucks}
+      link="https://gopsusports.com/sports/mens-ice-hockey/schedule/2021-22"
+      icon="schedule"
     >
-      ${slot}
     </cta-button>
 
     <cta-button
       style="--cta-button-text-color: ${textColor || 'white'}"
-      .title=${title}
+      title="Roster"
       .invert=${invert}
-      .link=${link}
-      .icon=${icon}
-      .disabled=${disabled}
-      .michiganSucks=${michiganSucks}
+      link="https://gopsusports.com/sports/mens-ice-hockey/roster"
+      icon="subject"
     >
-      ${slot}
     </cta-button>
 
     <cta-button
-      style="--cta-button-text-color: ${textColor || 'white'}"
-      .title=${title}
+      title="Michigan Hockey"
       .invert=${invert}
-      .icon=${icon}
-      ?disabled="${disabled}"
-      .michiganSucks=${michiganSucks}
+      icon="clear"
+      .disabled=${disabled}
     >
-      ${slot}
     </cta-button>
   `;
 }
