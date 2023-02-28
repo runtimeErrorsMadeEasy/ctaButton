@@ -89,7 +89,7 @@ export class CtaButton extends LitElement {
       'https://gopsusports.com/sports/mens-ice-hockey/schedule/2021-22';
     this.icon = 'save';
     this.disabled = false;
-    this.michiganSucks;
+    this.michiganSucks = false;
   }
 
   _myLink() {
@@ -98,22 +98,17 @@ export class CtaButton extends LitElement {
 
   render() {
     return html`
-      <a>
-        <span tabIndex="-1">
-          <button
-            class="ctaButton"
-            link=${this.link}
-            ?disabled=${this.disabled}
-            @click="${this._myLink}"
-          >
-            <simple-icon-lite
-              class="ctaIcon"
-              icon=${this.icon}
-            ></simple-icon-lite>
-            ${this.title}
-          </button>
-        </span>
-      </a>
+      <a href=${this.link} tabindex="-1"></a>
+      <button
+        class="ctaButton"
+        link=${this.link}
+        ?disabled=${this.disabled}
+        @click="${this._myLink}"
+      >
+        <simple-icon-lite class="ctaIcon" icon=${this.icon}></simple-icon-lite>
+        ${this.title}
+        <slot></slot>
+      </button>
     `;
   }
 }
